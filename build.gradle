@@ -11,7 +11,7 @@ buildscript {
 }
 
 version "0.1"
-group "phonebook"
+group "jid"
 
 apply plugin:"eclipse"
 apply plugin:"idea"
@@ -23,9 +23,14 @@ apply plugin:"org.grails.grails-gsp"
 repositories {
     mavenLocal()
     maven { url "https://repo.grails.org/grails/core" }
+    maven { url "https://packages.atlassian.com/maven-external/"}
 }
 
 dependencies {
+
+    compile group: 'com.atlassian.jira', name: 'jira-rest-java-client-core', version: '5.0.4'
+    compile group: 'com.atlassian.fugue', name: 'fugue', version: '2.6.1'
+
     compile "org.springframework.boot:spring-boot-starter-logging"
     compile "org.springframework.boot:spring-boot-autoconfigure"
     compile "org.grails:grails-core"
