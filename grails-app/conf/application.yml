@@ -1,8 +1,11 @@
 ---
+jid:
+   jiraServer: https://hmtmcse.com
+
 grails:
     profile: web
     codegen:
-        defaultPackage: phonebook
+        defaultPackage: jid
     spring:
         transactionManagement:
             proxies: false
