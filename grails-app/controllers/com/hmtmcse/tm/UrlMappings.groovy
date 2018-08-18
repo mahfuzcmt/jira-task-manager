@@ -1,4 +1,4 @@
-package jira.task.manager
+package com.hmtmcse.tm
 
 class UrlMappings {
 
