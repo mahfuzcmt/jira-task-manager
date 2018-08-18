@@ -12,3 +12,4 @@ out/
 .classpath
 node_modules
 *.lock
+package-lock.json
