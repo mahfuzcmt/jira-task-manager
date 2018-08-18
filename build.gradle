@@ -80,6 +80,11 @@ node {
     nodeModulesDir = file("${project.projectDir}/react-app")
 }
 
+task bundle(type: YarnTask, dependsOn: 'yarn') {
+    group = 'build'
+    description = 'Build the client bundle'
+    args = ['run', 'bundle']
+}
 
 task webpack(type: YarnTask, dependsOn: 'yarn') {
     group = 'application'
@@ -87,8 +92,8 @@ task webpack(type: YarnTask, dependsOn: 'yarn') {
     args = ['run', 'start']
 }
 
-//bootRun.dependsOn(['bundle'])
-//assetCompile.dependsOn(['bundle'])
+bootRun.dependsOn(['bundle'])
+assetCompile.dependsOn(['bundle'])
 
 tasks.withType(Test) {
     systemProperty "geb.env", System.getProperty('geb.env')
