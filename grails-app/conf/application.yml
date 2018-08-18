@@ -5,10 +5,14 @@ jid:
 grails:
     profile: web
     codegen:
+<<<<<<< HEAD
         defaultPackage: jid
     spring:
         transactionManagement:
             proxies: false
+=======
+        defaultPackage: jira.task.manager
+>>>>>>> Bismillah
     gorm:
         reactor:
             # Whether to translate GORM events into Reactor events
@@ -103,21 +107,17 @@ dataSource:
 
 environments:
     development:
-        server:
-            port: "9191"
         dataSource:
-            dbCreate: update
-            url: jdbc:h2:mem:phone_book;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
+            dbCreate: create-drop
+            url: jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
     test:
         dataSource:
             dbCreate: update
-            url: jdbc:h2:mem:phone_book;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
+            url: jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
     production:
-        server:
-            port: "9191"
         dataSource:
-            dbCreate: update
-            url: jdbc:h2:./phone_book;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
+            dbCreate: none
+            url: jdbc:h2:./prodDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
             properties:
                 jmxEnabled: true
                 initialSize: 5
