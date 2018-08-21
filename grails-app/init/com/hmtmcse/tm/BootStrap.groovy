@@ -1,9 +1,10 @@
-package jira.task.manager
+package com.hmtmcse.tm
 
 class BootStrap {
 
     def init = { servletContext ->
     }
+
     def destroy = {
     }
 }

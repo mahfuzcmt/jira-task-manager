@@ -1,4 +1,4 @@
-package jira.task.manager
+package com.hmtmcse.tm
 
 import grails.boot.GrailsApp
 import grails.boot.config.GrailsAutoConfiguration
