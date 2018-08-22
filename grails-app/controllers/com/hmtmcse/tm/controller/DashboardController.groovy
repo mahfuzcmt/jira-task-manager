@@ -6,6 +6,6 @@ import grails.converters.JSON
 class DashboardController {
 
     def index() {
-        render(User.list() as JSON)
+//        render(User.list() as JSON)
     }
 }

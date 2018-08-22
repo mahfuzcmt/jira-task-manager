@@ -5,7 +5,8 @@ import {
     Radio, Table, TableRow, TableCell, TableHead, TableBody,TableFooter, TablePagination,
     Select,MenuItem, FormControlLabel, Checkbox, FormGroup, FormLabel,RadioGroup,
     Card, CardContent, Typography, CardActions, CardHeader, CardMedia, Grid
-} from '@material-ui/core'
+} from '@material-ui/core';
+import axios from 'axios';
 
 const styles = theme => ({
     root: {
@@ -14,6 +15,23 @@ const styles = theme => ({
 });
 
 class TablePage extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            users: [],
+        };
+    }
+
+
+    componentDidMount() {
+        axios.get(`http://localhost:8080/apiUserV2`)
+            .then(response => {
+                console.log(response.data);
+                this.setState({users:response.data})
+            })
+    }
+
     render(){
         return (
             <Paper>
@@ -22,23 +40,20 @@ class TablePage extends Component {
                         <TableRow>
                             <TableCell>Name</TableCell>
                             <TableCell>Email</TableCell>
-                            <TableCell>Country</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        <TableRow>
-                            <TableCell>Touhid</TableCell>
-                            <TableCell>touhid@hmtmcse.com</TableCell>
-                            <TableCell>Bangladesh</TableCell>
-                        </TableRow>
+                        {this.state.users.map(function(user, key) {
+
+                            return (
+                                <TableRow>
+                                    <TableCell>{user.name}</TableCell>
+                                    <TableCell>{user.email}</TableCell>
+                                </TableRow>
+                            )
+
+                        })}
                     </TableBody>
-                    <TableFooter>
-                        <TableRow>
-                            <TablePagination
-                                colSpan={3}
-                                count={20}/>
-                        </TableRow>
-                    </TableFooter>
                 </Table>
             </Paper>
         );
