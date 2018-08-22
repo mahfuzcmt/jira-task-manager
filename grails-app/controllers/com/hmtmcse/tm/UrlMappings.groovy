@@ -1,6 +1,9 @@
 package com.hmtmcse.tm
 
+import grails.core.GrailsApplication
+
 class UrlMappings {
+
 
     static mappings = {
         "/$controller/$action?/$id?(.$format)?"{
@@ -8,6 +11,8 @@ class UrlMappings {
                 // apply constraints here
             }
         }
+
+        println("Core URL Mapping")
 
         "/"(view:"/index")
         "500"(view:'/error')
