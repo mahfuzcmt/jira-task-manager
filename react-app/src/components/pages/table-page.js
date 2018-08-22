@@ -27,7 +27,6 @@ class TablePage extends Component {
     componentDidMount() {
         axios.get(`http://localhost:8080/apiUserV2`)
             .then(response => {
-                console.log(response.data);
                 this.setState({users:response.data})
             })
     }
