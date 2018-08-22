@@ -21,16 +21,20 @@ import Route from "react-router-dom/es/Route";
 
 class NavigationElement extends Component {
 
-    state = {
-        open: true,
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            open: true,
+        };
+    }
+
+    handleDrawerClose = () => {
+        this.setState({ open: false });
     };
 
     handleDrawerOpen = () => {
         this.setState({ open: true });
-    };
-
-    handleDrawerClose = () => {
-        this.setState({ open: false });
     };
 
     render(){
