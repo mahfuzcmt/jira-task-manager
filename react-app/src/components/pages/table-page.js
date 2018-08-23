@@ -1,7 +1,7 @@
 import { withStyles } from '@material-ui/core/styles';
 import React, { Component } from 'react';
 import {
-    Button,Paper, TextField, FormControl, InputLabel, Input,
+    Fade,Paper, CircularProgress, LinearProgress, InputLabel, Input,
     Radio, Table, TableRow, TableCell, TableHead, TableBody,TableFooter, TablePagination,
     Select,MenuItem, FormControlLabel, Checkbox, FormGroup, FormLabel,RadioGroup,
     Card, CardContent, Typography, CardActions, CardHeader, CardMedia, Grid
@@ -11,7 +11,11 @@ import axios from 'axios';
 const styles = theme => ({
     root: {
         color:'blue'
-    }
+    },
+    progress: {
+        justifyContent: 'center',
+        margin: theme.spacing.unit * 2,
+    },
 });
 
 class TablePage extends Component {
@@ -27,13 +31,21 @@ class TablePage extends Component {
     componentDidMount() {
         axios.get(`http://localhost:8080/apiUserV2`)
             .then(response => {
-                this.setState({users:response.data})
+                // this.setState({users:response.data})
             })
     }
 
     render(){
+
+        const { classes } = this.props;
+
         return (
             <Paper>
+
+                <Fade in={true}>
+                    <LinearProgress color="primary" />
+                </Fade>
+
                 <Table>
                     <TableHead>
                         <TableRow>
