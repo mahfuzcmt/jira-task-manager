@@ -21,7 +21,6 @@ import Route from "react-router-dom/es/Route";
 
 class NavigationElement extends Component {
 
-
     constructor(props) {
         super(props);
         this.state = {
@@ -29,12 +28,12 @@ class NavigationElement extends Component {
         };
     }
 
-    handleDrawerClose = () => {
-        this.setState({ open: false });
-    };
-
     handleDrawerOpen = () => {
         this.setState({ open: true });
+    };
+
+    handleDrawerClose = () => {
+        this.setState({ open: false });
     };
 
     render(){

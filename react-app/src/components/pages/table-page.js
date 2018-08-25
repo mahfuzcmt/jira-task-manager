@@ -7,6 +7,7 @@ import {
     Card, CardContent, Typography, CardActions, CardHeader, CardMedia, Grid
 } from '@material-ui/core';
 import axios from 'axios';
+import AppComponent from "../system/app-component";
 
 const styles = theme => ({
     root: {
@@ -18,7 +19,7 @@ const styles = theme => ({
     },
 });
 
-class TablePage extends Component {
+class TablePage extends AppComponent {
 
     constructor(props) {
         super(props);
@@ -29,23 +30,17 @@ class TablePage extends Component {
 
 
     componentDidMount() {
-        axios.get(`http://localhost:8080/apiUserV2`)
-            .then(response => {
-                // this.setState({users:response.data})
-            })
+        this.getToApi("apiUserV2", response => {
+            this.setState({users:response.data})
+        });
     }
 
-    render(){
+    appRender(){
 
         const { classes } = this.props;
 
         return (
             <Paper>
-
-                <Fade in={true}>
-                    <LinearProgress color="primary" />
-                </Fade>
-
                 <Table>
                     <TableHead>
                         <TableRow>

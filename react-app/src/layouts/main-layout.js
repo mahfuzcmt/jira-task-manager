@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {
-    CssBaseline, Fade, LinearProgress, Typography, FormControl, InputLabel, Input, Button,
-    withStyles, Snackbar, Toolbar, IconButton, Badge, Drawer, Divider, List
+    CssBaseline, Paper, Avatar, Typography, FormControl, InputLabel, Input, Button,
+    withStyles, AppBar, Toolbar, IconButton, Badge, Drawer, Divider, List
 } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { mainLayoutJSS } from './../assets/jss/application-jss';
@@ -35,9 +35,6 @@ class MainLayout extends Component {
         return (
             <React.Fragment>
                 <CssBaseline/>
-
-
-
                 {this.isMainLayout() ? (<div className={classes.root}>
                     <NavigationElement/>
                     <main className={classes.content}>
