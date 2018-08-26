@@ -12,7 +12,8 @@ class UrlMappings {
             }
         }
 
-        println("Core URL Mapping")
+        "/**"(controller: "dashboard", action: "index")
+
 
         "/"(controller: "dashboard", action: "index")
         "500"(view:'/error')
