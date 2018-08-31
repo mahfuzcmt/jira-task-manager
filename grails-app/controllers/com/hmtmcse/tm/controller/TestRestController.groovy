@@ -1,8 +1,12 @@
 package com.hmtmcse.tm.controller
 
+import com.hmtmcse.tm.User
 import grails.rest.RestfulController
 
-class TestRestController{
+class TestRestController extends RestfulController{
 
-    def index() { }
+    TestRestController() {
+        super(User)
+    }
+
 }

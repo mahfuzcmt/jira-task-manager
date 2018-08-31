@@ -1,10 +1,10 @@
 package com.hmtmcse.tm.controller.api
 
+import com.hmtmcse.gs.controller.GsRestfulController
 import com.hmtmcse.tm.User
 import grails.converters.JSON
-import grails.rest.RestfulController
 
-class ApiUserV2Controller{
+class ApiUserV2Controller extends GsRestfulController{
 
 
     def index() {
