@@ -1,12 +1,12 @@
 package com.hmtmcse.tm.controller.api
 
 import com.hmtmcse.gs.GsUrlMappingUtil
-import com.hmtmcse.gs.controller.GsRestfulController
+import com.hmtmcse.gs.GsRestProcessor
 import com.hmtmcse.gs.data.GsApiVersionActionsData
 import com.hmtmcse.tm.User
 import grails.converters.JSON
 
-class ApiUserV2Controller extends GsRestfulController{
+class ApiUserV2Controller extends GsRestProcessor{
 
 
     def index() {
@@ -18,6 +18,6 @@ class ApiUserV2Controller extends GsRestfulController{
         GsUrlMappingUtil.getUrlMappingData().each { GsApiVersionActionsData urls ->
             println(urls.versionPrefix)
         }
-        render("Hi")
+        render(gsRead(null))
     }
 }
