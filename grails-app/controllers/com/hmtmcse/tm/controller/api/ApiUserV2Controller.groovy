@@ -6,7 +6,7 @@ import com.hmtmcse.gs.data.GsApiVersionActionsData
 import com.hmtmcse.tm.User
 import grails.converters.JSON
 
-class ApiUserV2Controller extends GsRestProcessor{
+class ApiUserV2Controller extends GsRestProcessor {
 
 
     def index() {
