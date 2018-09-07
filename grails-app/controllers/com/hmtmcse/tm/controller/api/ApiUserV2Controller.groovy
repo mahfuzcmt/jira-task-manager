@@ -18,6 +18,6 @@ class ApiUserV2Controller extends GsRestProcessor{
         GsUrlMappingUtil.getUrlMappingData().each { GsApiVersionActionsData urls ->
             println(urls.versionPrefix)
         }
-        render(gsRead(null))
+        gsRead(null)
     }
 }
