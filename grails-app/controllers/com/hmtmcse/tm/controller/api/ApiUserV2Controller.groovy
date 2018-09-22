@@ -20,6 +20,15 @@ class ApiUserV2Controller extends GsRestProcessor {
         println("Yes")
     }
 
+
+    def gs(){
+        return list(userDefinitionService.getUserList())
+    }
+
+    def gsGet(){
+        return get(userDefinitionService.getUserList())
+    }
+
     def xyz() {
         GsUrlMappingUtil.getUrlMappingData().each { GsApiVersionActionsData urls ->
             println(urls.versionPrefix)
