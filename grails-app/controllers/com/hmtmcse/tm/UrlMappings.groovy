@@ -12,7 +12,7 @@ class UrlMappings {
             }
         }
 
-        "/**"(controller: "dashboard", action: "index")
+        "/**"(controller: "apiUserV2", action: "index")
 
 
         "/"(controller: "dashboard", action: "index")
