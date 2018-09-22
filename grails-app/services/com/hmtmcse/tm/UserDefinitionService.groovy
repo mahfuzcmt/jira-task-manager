@@ -9,7 +9,7 @@ class UserDefinitionService extends GsApiDefinition{
 
     def getUserList(){
         definition = new GsApiActionDefinition<User>(User)
-        definition.includeOnlyProperty(["name", "email"])
+        definition.includeOnlyProperty(["name", "email", "id"])
         return definition
     }
 
