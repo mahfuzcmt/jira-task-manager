@@ -26,4 +26,13 @@ class ApiUserV2Controller extends GsRestProcessor {
         }
         gsReadResponse(null)
     }
+
+    def customMarshaller() {
+        JSON.registerObjectMarshaller(User){
+            def output = [:]
+            output['id'] = it.id
+            return output
+        }
+        render(User.list() as JSON)
+    }
 }
