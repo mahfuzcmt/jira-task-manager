@@ -18,7 +18,6 @@ class ApiUserV2Controller extends GsRestProcessor {
         userDefinitionService.getUserList()
 
         render(User.list() as JSON)
-        println("Yes")
     }
 
 
@@ -46,13 +45,29 @@ class ApiUserV2Controller extends GsRestProcessor {
         render(User.list() as JSON)
     }
 
-    def getList(){}
+    def getList(){
+        render([name:"getList"] as JSON)
+    }
 
-    def postList(){}
+    def postList(){
+        render([name:"postList"] as JSON)
+    }
 
-    def postCreate(){}
+    def postCreate(){
+        render([name:"postCreate"] as JSON)
+    }
 
-    def deleteDelete(){}
+    def postCreateUser(){
+        render([name:"postCreateUser"] as JSON)
+    }
+
+    def postCreateUserAndRole(){
+        render([name:"postCreateUserAndRole"] as JSON)
+    }
+
+    def deleteDelete(){
+        render([name:"deleteDelete"] as JSON)
+    }
 
 
 }

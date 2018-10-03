@@ -12,9 +12,6 @@ class UrlMappings {
             }
         }
 
-        "/**"(controller: "apiUserV2", action: "index")
-
-
         "/"(controller: "dashboard", action: "index")
         "500"(view:'/error')
         "404"(view:'/notFound')
