@@ -2,7 +2,6 @@ package com.hmtmcse.tm.controller.api
 
 import com.hmtmcse.gs.GsUrlMappingUtil
 import com.hmtmcse.gs.GsRestProcessor
-import com.hmtmcse.gs.data.GsApiVersionActionsData
 import com.hmtmcse.gs.data.GsControllerActionData
 import com.hmtmcse.tm.User
 import com.hmtmcse.tm.UserDefinitionService
@@ -46,6 +45,7 @@ class ApiUserV2Controller extends GsRestProcessor {
     }
 
     def getList(){
+        exception("Invalid Content Types")
         render([name:"getList"] as JSON)
     }
 
