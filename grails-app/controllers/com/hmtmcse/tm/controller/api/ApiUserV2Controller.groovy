@@ -45,7 +45,6 @@ class ApiUserV2Controller extends GsRestProcessor {
     }
 
     def getList(){
-        exception("Invalid Content Types")
         render([name:"getList"] as JSON)
     }
 
