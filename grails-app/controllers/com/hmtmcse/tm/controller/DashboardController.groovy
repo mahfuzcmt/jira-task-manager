@@ -1,7 +1,6 @@
 package com.hmtmcse.tm.controller
 
 import com.hmtmcse.tm.TestTaskService
-import com.hmtmcse.tm.User
 import grails.converters.JSON
 
 class DashboardController {
@@ -11,5 +10,9 @@ class DashboardController {
     def index() {
         testTaskService.generate()
         render("Test")
+    }
+
+    def swagger(){
+        render( testTaskService.generate() as JSON)
     }
 }
