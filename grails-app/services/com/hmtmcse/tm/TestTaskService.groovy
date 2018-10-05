@@ -27,9 +27,26 @@ class TestTaskService {
     }
 
 
+
+
     void swaggerJsonByControllerData(GsControllerActionData controllerActionData){
-        String tagName = GsReflectionUtil.getPropertyValue(controllerActionData.controllerClass, "tagName")?: GsUtil.makeHumReadble(controllerActionData.controllerUrlName)
-        String description = GsReflectionUtil.getPropertyValue(controllerActionData.controllerClass, "description")?: ""
+        String tagName = ""
+        String description = ""
+        def controllerObj = GsReflectionUtil.getNewObject(controllerActionData.controllerClass)
+        if (controllerObj){
+            controllerObj.swaggerInit()
+            tagName = controllerObj.tagName ?: GsUtil.makeHumReadble(controllerActionData.controllerUrlName)
+            description = controllerObj.tagDescription
+        }
+
+
+
+
+
+        println("isDefinition: " + GsReflectionUtil.getPropertyValue(controllerActionData.controllerClass, "isDefinition"))
+        GsReflectionUtil.setPropertyValue(controllerActionData.controllerClass, "isDefinition", true)
+        println("isDefinition: " + GsReflectionUtil.getPropertyValue(controllerActionData.controllerClass, "isDefinition"))
+
         swaggerDefinition.addTag(tagName, description)
 
 

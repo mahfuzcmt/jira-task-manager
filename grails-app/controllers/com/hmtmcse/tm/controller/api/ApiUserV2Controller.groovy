@@ -12,6 +12,12 @@ class ApiUserV2Controller extends GsRestProcessor {
 
     UserDefinitionService userDefinitionService
 
+    @Override
+    void swaggerInit() {
+        tagDescription = "This API Responsible For User Management"
+    }
+
+
     def index() {
 
         userDefinitionService.getUserList()
