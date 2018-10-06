@@ -37,9 +37,9 @@ class TestTaskService {
         String description = ""
         def controllerObj = GsReflectionUtil.getNewObject(controllerActionData.controllerClass)
         if (controllerObj){
-            controllerObj.swaggerInit()
-            tagName = controllerObj.tagName ?: GsUtil.makeHumReadble(controllerActionData.controllerUrlName)
-            description = controllerObj.tagDescription
+            controllerObj?.swaggerInit()
+            tagName = controllerObj?.tagName ?: GsUtil.makeHumReadble(controllerActionData.controllerUrlName)
+            description = controllerObj?.tagDescription
         }
         GsReflectionUtil.apiActionDefinition(controllerActionData)
 

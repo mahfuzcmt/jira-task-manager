@@ -12,6 +12,10 @@ class User {
     Date lastUpdated
     Complexity complexity
 
+    Double doubleNumber
+    Float floatNumber
+    Long longNumber
+
 
     static constraints = {
     }
