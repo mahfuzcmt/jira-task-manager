@@ -1,19 +1,19 @@
 package com.hmtmcse.tm.controllers.api
 
-
 import com.hmtmcse.gs.GsRestProcessor
+import com.hmtmcse.tm.api.ApiTouhid
 import com.hmtmcse.tm.api.UserApiDefinition
-import com.hmtmcse.tm.UserDefinitionService
+import grails.converters.JSON
 
-class ApiUserV2Controller extends GsRestProcessor {
+class ApiUserV2Controller extends GsRestProcessor<ApiTouhid> {
 
 
-    UserDefinitionService userDefinitionService
-
-    @Override
-    void swaggerInit() {
+    ApiUserV2Controller() {
+        super(new ApiTouhid())
         tagDescription = "This API Responsible For User Management"
     }
+
+
 //
 //
 //    def index() {
@@ -48,21 +48,23 @@ class ApiUserV2Controller extends GsRestProcessor {
 //        render(User.list() as JSON)
 //    }
 
-    def getList(){
+    def getList() {
+        gsApiDefinition.test()
+
         return list(UserApiDefinition.getUserList())
     }
 //
-//    def postList(){
-//        render([name:"postList"] as JSON)
-//    }
+    def postList() {
+        return response([name: "postList"] as JSON)
+    }
+
+    def postCreate() {
+
+    }
 //
-//    def postCreate(){
-//        render([name:"postCreate"] as JSON)
-//    }
-//
-//    def postCreateUser(){
+    def postCreateUser() {
 //        render([name:"postCreateUser"] as JSON)
-//    }
+    }
 //
 //    def postCreateUserAndRole(){
 //        render([name:"postCreateUserAndRole"] as JSON)

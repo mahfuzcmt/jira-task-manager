@@ -42,11 +42,6 @@ class TestTaskService {
             description = controllerObj?.tagDescription
         }
         GsReflectionUtil.apiActionDefinition(controllerActionData)
-
-        println("isDefinition: " + GsReflectionUtil.getPropertyValue(controllerActionData.controllerClass, "isDefinition"))
-        GsReflectionUtil.setPropertyValue(controllerActionData.controllerClass, "isDefinition", true)
-        println("isDefinition: " + GsReflectionUtil.getPropertyValue(controllerActionData.controllerClass, "isDefinition"))
-
         swaggerDefinition.addTag(tagName, description)
 
 
