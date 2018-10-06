@@ -1,4 +1,4 @@
-package com.hmtmcse.tm.controller
+package com.hmtmcse.tm.controllers
 
 import com.hmtmcse.tm.TestTaskService
 import grails.converters.JSON
@@ -8,11 +8,11 @@ class DashboardController {
     TestTaskService testTaskService
 
     def index() {
-        testTaskService.generate()
         render("Test")
     }
 
     def swagger(){
-        render( testTaskService.generate() as JSON)
+        def response = testTaskService.generate()
+        render( response as JSON)
     }
 }

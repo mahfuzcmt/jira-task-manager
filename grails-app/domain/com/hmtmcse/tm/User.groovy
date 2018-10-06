@@ -10,6 +10,7 @@ class User {
     Boolean isExternal = false
     Date dateCreated
     Date lastUpdated
+    Complexity complexity
 
 
     static constraints = {

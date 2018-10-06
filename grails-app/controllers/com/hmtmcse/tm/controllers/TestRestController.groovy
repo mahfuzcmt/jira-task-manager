@@ -1,4 +1,4 @@
-package com.hmtmcse.tm.controller
+package com.hmtmcse.tm.controllers
 
 import com.hmtmcse.tm.User
 import grails.rest.RestfulController

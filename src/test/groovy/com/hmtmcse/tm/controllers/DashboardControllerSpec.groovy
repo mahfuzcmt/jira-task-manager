@@ -1,4 +1,4 @@
-package com.hmtmcse.tm.controller
+package com.hmtmcse.tm.controllers
 
 import grails.testing.web.controllers.ControllerUnitTest
 import spock.lang.Specification

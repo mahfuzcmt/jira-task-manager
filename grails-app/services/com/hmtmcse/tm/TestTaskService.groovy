@@ -1,6 +1,5 @@
 package com.hmtmcse.tm
 
-import com.hmtmcse.gs.GsConfigService
 import com.hmtmcse.gs.GsReflectionUtil
 import com.hmtmcse.gs.GsUrlMappingUtil
 import com.hmtmcse.gs.GsUtil
@@ -18,10 +17,14 @@ class TestTaskService {
     private SwaggerDefinition swaggerDefinition = new SwaggerDefinition()
 
     def generate() {
-        startSwagger("localhost:8080", GsUrlMappingUtil.apiPrefix())
-        GsUrlMappingUtil.getUrlMappingData().each { GsControllerActionData controllerActionData ->
-            println(controllerActionData.controllerName + " " + controllerActionData.controllerUrlName + " " + controllerActionData.controllerRealName)
-            swaggerJsonByControllerData(controllerActionData)
+        try{
+            startSwagger("localhost:8080", GsUrlMappingUtil.apiPrefix())
+            GsUrlMappingUtil.getUrlMappingData().each { GsControllerActionData controllerActionData ->
+                println(controllerActionData.controllerName + " " + controllerActionData.controllerUrlName + " " + controllerActionData.controllerRealName)
+                swaggerJsonByControllerData(controllerActionData)
+            }
+        }catch(Exception e){
+           println(e.getMessage())
         }
         return swaggerDefinition.getDefinition()
     }
@@ -38,10 +41,7 @@ class TestTaskService {
             tagName = controllerObj.tagName ?: GsUtil.makeHumReadble(controllerActionData.controllerUrlName)
             description = controllerObj.tagDescription
         }
-
-
-
-
+        GsReflectionUtil.apiActionDefinition(controllerActionData)
 
         println("isDefinition: " + GsReflectionUtil.getPropertyValue(controllerActionData.controllerClass, "isDefinition"))
         GsReflectionUtil.setPropertyValue(controllerActionData.controllerClass, "isDefinition", true)

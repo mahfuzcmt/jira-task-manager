@@ -1,9 +1,6 @@
 package com.hmtmcse.tm
 
-import grails.core.GrailsApplication
-
 class UrlMappings {
-
 
     static mappings = {
         "/$controller/$action?/$id?(.$format)?"{

@@ -4,7 +4,7 @@ import com.hmtmcse.gs.GsApiActionDefinition
 import com.hmtmcse.gs.GsApiDefinition
 
 
-class UserDefinitionService extends GsApiDefinition{
+class UserDefinitionService extends GsApiDefinition {
 
 
     def getUserList(){
